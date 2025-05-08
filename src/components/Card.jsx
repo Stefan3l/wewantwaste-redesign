@@ -1,4 +1,10 @@
-export default function Card({ size, period, price, notAllowedOnRoad }) {
+export default function Card({
+  size,
+  period,
+  price,
+  notAllowedOnRoad,
+  selected,
+}) {
   return (
     <div className="group relative border-2 md:p-6 transition-all border-[#0037C1] bg-[#0037C1]/10 bg-[#1C1C1C] p-4 rounded-lg text-white cursor-pointer">
       <div className="relative">
@@ -49,8 +55,25 @@ export default function Card({ size, period, price, notAllowedOnRoad }) {
           </span>
         </div>
       </div>
-      <button className="w-full py-2.5 md:py-3 px-4 rounded-md transition-all flex items center justify-center space-x-2 bg-[#0037C1] text-white hover:bg-[#002da1] false">
-        <span>Selected</span>
+      <button className="w-full py-2.5 md:py-3 px-4 rounded-md transition-all flex items-center justify-center space-x-2 bg-[#0037C1] text-white hover:bg-[#002da1] false">
+        <span>{selected ? "Selected" : "Select This Skip "} </span>
+        {!selected && (
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            class="lucide lucide-arrow-right w-4 h-4"
+          >
+            <path d="M5 12h14"></path>
+            <path d="m12 5 7 7-7 7"></path>
+          </svg>
+        )}
       </button>
     </div>
   );

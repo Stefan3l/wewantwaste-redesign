@@ -6,6 +6,7 @@ import Card from "./Card";
 
 export default function SkipList() {
   const [skips, setSkips] = useState([]);
+  const [selectedSkipId, setSelctedSkipId] = useState(null);
 
   useEffect(() => {
     axios
@@ -24,12 +25,13 @@ export default function SkipList() {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:gap-6">
       {skips.map((skip) => (
-        <div key={skip.id}>
+        <div key={skip.id} onClick={() => setSelctedSkipId(skip.id)}>
           <Card
             size={skip.size}
             period={skip.hire_period_days}
             price={skip.price_before_vat}
             notAllowedOnRoad={skip.allowed_on_road === false}
+            selected={skip.id === selectedSkipId}
           />
         </div>
       ))}
