@@ -43,7 +43,7 @@ export default function SkipHeader() {
           <span className="ml-2 text-white">Waste Type</span>
         </button>
         <div className="w-16 h-px bg-[#595959] self-center"></div>
-        <button className="flex items-center whitespace-nowrap text-[#595959] cursor-pointer hover:text-[#595959]">
+        <button className="flex items-center whitespace-nowrap text-[#0037C1] cursor-pointer hover:text-[#595959]">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"

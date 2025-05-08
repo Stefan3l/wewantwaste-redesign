@@ -6,7 +6,13 @@ export default function Card({
   selected,
 }) {
   return (
-    <div className="group relative border-2 md:p-6 transition-all border-[#0037C1] bg-[#0037C1]/10 bg-[#1C1C1C] p-4 rounded-lg text-white cursor-pointer">
+    <div
+      className={`group relative border-2 md:p-6 transition-all ${
+        selected
+          ? "border-[#0055FF] bg-[#0055FF]/10"
+          : "border-gray-700 bg-[#1C1C1C] hover:border-[#0037C1] hover:bg-[#0037C1]/10"
+      } p-4 rounded-lg text-white cursor-pointer`}
+    >
       <div className="relative">
         <img
           src={`https://yozbrydxdlcxghkphhtq.supabase.co/storage/v1/object/public/skips/skip-sizes/${size}-yarder-skip.jpg`}
@@ -55,7 +61,11 @@ export default function Card({
           </span>
         </div>
       </div>
-      <button className="w-full py-2.5 md:py-3 px-4 rounded-md transition-all flex items-center justify-center space-x-2 bg-[#0037C1] text-white hover:bg-[#002da1] false">
+      <button
+        className={`w-full py-2.5 md:py-3 px-4 rounded-md transition-all flex items-center justify-center space-x-2 ${
+          selected ? "bg-[#0055FF]" : "bg-gray-700 hover:bg-[#0037C1]"
+        } text-white`}
+      >
         <span>{selected ? "Selected" : "Select This Skip "} </span>
         {!selected && (
           <svg

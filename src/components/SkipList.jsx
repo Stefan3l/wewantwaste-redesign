@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 
 //import components
 import Card from "./Card";
+import ActionBar from "./ActionBar";
 
 export default function SkipList() {
   const [skips, setSkips] = useState([]);
@@ -22,8 +23,10 @@ export default function SkipList() {
       });
   }, []);
 
+  const selectedSkip = skips.find((skip) => skip.id === selectedSkipId);
+
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:gap-6">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {skips.map((skip) => (
         <div key={skip.id} onClick={() => setSelctedSkipId(skip.id)}>
           <Card
@@ -35,6 +38,13 @@ export default function SkipList() {
           />
         </div>
       ))}
+      {selectedSkip && (
+        <ActionBar
+          size={selectedSkip.size}
+          price={selectedSkip.price_before_vat}
+          period={selectedSkip.hire_period_days}
+        />
+      )}
     </div>
   );
 }
